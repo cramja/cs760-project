@@ -16,8 +16,8 @@ ylim([-5 5]);
 
 epochs = 50;
 learning_rate = 0.01;
-learning_rate_decay = 0.99;
-lambda = 0.05;
+learning_rate_decay = 0.9;
+lambda = 0.2;
 
 w = (rand(1,2) - 0.5) * 4;
 w_h = [w;w];
@@ -26,7 +26,7 @@ for e = 1:epochs
     for i = 1:sz(1)
         j = (x(i,1:2) * w') .* x(i,3);
         if j < 1
-            w = w - learning_rate .* (x(i,1:2) .* x(i,3)) - (w .* lambda);
+            w = w - learning_rate .* (x(i,1:2) .* x(i,3)) - (w .* lambda .* inv(sz(1)));
             w_h = [w_h; w];
         end
         if exist('w_scatter')
