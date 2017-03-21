@@ -3,6 +3,7 @@ function [ x ] = create_seperable_data()
 %
 %   returns matrix of the form [[x0,x1,y], [x0,x1,y], ... ]
 %   centers one dataset around 0,0 and the other around 3,3
+%
     examples = 50;
     ex2 = examples/2;
     pd = makedist('Normal');
@@ -10,5 +11,7 @@ function [ x ] = create_seperable_data()
     x(1:ex2, 1:2) = x(1:examples/2, 1:2) + 1;
     x(ex2:examples, 1:2) = x(ex2:examples, 1:2) + 3;
     x(ex2:examples, 3) = -1;
+    
+    x = x - repmat(sum(x)/examples, examples, 1); % center around 0,0
 end
 
