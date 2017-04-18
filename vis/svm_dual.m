@@ -6,12 +6,12 @@
 
 epochs = 50;
 learning_rate = 0.01;
-learning_rate_decay = 0.95;
+learning_rate_decay = 0.8;
 lambda = 1;
 
 dual_plot = -1;
 
-a = rand(sz(1),1) - 0.5; % [-0.5,0.5]
+a = (rand(sz(1),1) - 0.5) * 30; % [-0.5,0.5]
 w = x' * a;
 K = x * x'; % full linear kernel
 for e = 1:epochs;

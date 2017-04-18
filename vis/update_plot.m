@@ -18,19 +18,22 @@ function [ wvis ] = update_plot( w, wvis_old, col )
     mag_line = plot(wv(:,1), wv(:,2), col);
     
     if isa(wvis_old, 'struct')
-%         hist = [wv1 ; wvis_old.hist];
+        hist = wvis_old.hist;
+        if norm(wv1 - hist(1,:)) > 0.3
+            hist = [wv1; hist];
+        end
         delete(wvis_old.boundary);
         delete(wvis_old.mag_line);
-%         delete(wvis_old.hist_scat);
+        delete(wvis_old.hist_scat);
     else
         hist = [wv1];
     end
     
-%     hscat = scatter(hist(:,1), hist(:,2), 'k.');
+    hscat = scatter(hist(:,1), hist(:,2), strcat(col, 'o'));
     
     wvis.boundary = line;
     wvis.mag_line = mag_line;
-%    wvis.hist_scat = hscat;
-%    wvis.hist = hist;
+    wvis.hist_scat = hscat;
+    wvis.hist = hist;
 end
 

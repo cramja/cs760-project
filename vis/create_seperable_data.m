@@ -4,6 +4,7 @@ function [ x ] = create_seperable_data()
 %   returns matrix of the form [[x0,x1,y], [x0,x1,y], ... ]
 %   centers one dataset around 0,0 and the other around 3,3
 %
+    rng('default')
     examples = 50;
     ex2 = examples/2;
     pd = makedist('Normal');

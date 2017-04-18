@@ -4,11 +4,11 @@
 wvis = -1;
 
 epochs = 50;
-learning_rate = 0.05;
+learning_rate = 0.1;
 learning_rate_decay = 0.95;
 lambda = 1;
 
-w = [-1 -1 -1] + (rand(1,sz(2)) - 0.5) * 4;
+w = (rand(1,sz(2)) - 0.5) * 30;
 for e = 1:epochs;
     for i = randperm(sz(1));
         j = (x(i, :) * w') .* y(i);
