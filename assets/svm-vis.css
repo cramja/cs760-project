@@ -1,0 +1,48 @@
+.my_canvas {
+    background-color: #f9f9f9;
+    height: 600px;
+    width:480px;
+    margin: 0px auto;
+    border-radius: 8px;
+}
+
+.wrapper {
+    margin: 0px auto;
+    width:600px;
+    min-height: 100%;
+}
+
+input[type=range]{
+    width: 60px;
+}
+
+.controls {
+    width: 480px;
+}
+
+.control-row {
+    margin-left:30px;
+}
+
+.control-row > span {
+    width:120px;
+    display:inline-block;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+input[type=checkbox] {
+    width: 25px;
+}
+
+.slider_container {
+    display:inline;
+    margin-left:10px;
+    margin-right:10px;
+}
+
+.slider_container > span {
+    padding-left:10px;
+}

@@ -1,0 +1,74 @@
+---
+layout: default
+---
+<!-- These should be in the head, but... -->
+<link rel="stylesheet" type="text/css" href="/assets/svm-vis.css"/>
+<script src="/js/slider.js"></script>
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <div class="wrapper">
+    <!-- height/width properties determine coordinate system properties when
+    drawing on the 2d canvas -->
+    <canvas class="my_canvas" id="svm_canvas" height="600" width="480"></canvas>
+    <div class="controls">
+      <div id="animation_control">
+        <button id="playpause_btn">Start</button>
+        <button id="reset_btn">Reset</button>
+      </div>
+      <div id="data_control">
+        Data Mean Value: <input type="range" id="data_mean_slider" value="20.0"/>
+        <span id="data_mean_value">2.0</span>
+      </div>
+      <div id="solver_control">
+        <div id="solver_sgd">
+          <input type="checkbox" id="solver_sgd.enabled-chk"/>
+          <span class="bold">SGD Solver</span>
+          <div class="control-row">
+            <span>Lambda</span>
+            <div id="solver_sgd.lambda" class="slider_container"></div>
+          </div>
+          <div class="control-row">
+            <span>Learning Rate</span>
+            <div id="solver_sgd.learning_rate" class="slider_container"></div>
+          </div>
+        </div>
+        <div id="solver_asgd">
+          <input type="checkbox" id="solver_asgd.enabled-chk"/>
+          <span class="bold">ASGD Solver</span>
+          <div class="control-row">
+            <span>Lambda</span>
+            <div id="solver_asgd.lambda" class="slider_container"></div>
+          </div>
+          <div class="control-row">
+            <span>Learning Rate</span>
+            <div id="solver_asgd.learning_rate" class="slider_container"></div>
+          </div>
+        </div>
+        <div id="solver_saga">
+          <input type="checkbox" id="solver_saga.enabled-chk"/>
+          <span class="bold">SAGA Solver</span>
+          <div class="control-row">
+            <span>Lambda</span>
+            <div id="solver_saga.lambda" class="slider_container"></div>
+          </div>
+          <div class="control-row">
+            <span>Learning Rate</span>
+            <div id="solver_saga.learning_rate" class="slider_container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/svm-vis.js"></script>
+</article>
