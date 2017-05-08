@@ -18,7 +18,8 @@ email: spehlmann@cs.wisc.edu
 description: > # this means to ignore newlines until "baseurl:"
   The project site for cs760.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+proj_url: "http://pages.cs.wisc.edu/~spehlmann/cs760/_site/" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 markdown: kramdown
